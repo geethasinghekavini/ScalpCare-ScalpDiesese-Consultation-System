@@ -47,7 +47,7 @@
 }
 
 .header {
-  background-color: #FFF2E7;
+  background-color: #e4cab5;
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -114,12 +114,12 @@
   color: #fff;
   padding: 8px 16px;
   border: none;
-  border-radius: 10px;
-  font-size: 14px;
+  border-radius: 50px;
+  font-size: 18px;
   cursor: pointer;
   margin-left: 16px;
-  height: 50px;
-  weight: 150px;
+  height: 100px;
+  weight: 200px;
 
 }
 
@@ -131,6 +131,46 @@
   position: relative;
   top: -100px;
   left: 300px;
+  
 }
+
+.serum-image {
+  height: 250px;
+  width: 250px;
+  position: absolute;
+  top: 65%;
+  left: 15%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid grey;
+ 
+}
+
+.hairloss-image{
+  height: 205px;
+  width: 205px;
+  position: absolute;
+  top: 80%;
+  left: 30%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid grey;
+  
+}
+
+.hair-image{
+  height: 300px;
+  width: 300px;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid grey;
+}
+
 
 
