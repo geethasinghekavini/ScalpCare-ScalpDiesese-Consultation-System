@@ -36,7 +36,8 @@
     transform: rotate(360deg);
   }
 }
- 
+
+/*------------------------------------------------------*/
 .root {
   height: 100vh;
   background-image: url(Images/background.png);
