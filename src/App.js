@@ -27,7 +27,7 @@ function App() {
       <main className="main">
         <div className='right-cont'>
           <h1 className='header-title'> ScalpCare </h1>
-          <h4 className='head-text2'>HAIR AND SCALP DISEASE IDENTIFIER </h4>
+          <h4 className='head-text2'>hair and scalp disease identifier </h4>
           <button className="detect-button1">Get Started</button>
         </div>
       </main>
