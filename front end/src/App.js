@@ -1,4 +1,7 @@
 import logo from './logo.svg';
+import serum from './Images/serum.png';
+import hairloss from './Images/hairloss.jpg';
+import hair from './Images/hair.jpg';
 import './App.css';
 
 function App() {
@@ -29,6 +32,11 @@ function App() {
           <h1 className='header-title'> ScalpCare </h1>
           <h4 className='head-text2'>HAIR AND SCALP DISEASE IDENTIFIER </h4>
           <button className="detect-button1">Get Started</button>
+        </div>
+        <div className='left-cont'>
+          <img src={serum} className='serum-image'></img>
+          <img src={hairloss} className='hairloss-image'></img>
+          <img src={hair} className='hair-image'></img>
         </div>
       </main>
     </div>
