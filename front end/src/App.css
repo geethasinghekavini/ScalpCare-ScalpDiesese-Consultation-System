@@ -36,19 +36,21 @@
     transform: rotate(360deg);
   }
 }
-
-/*------------------------------------------------------*/
+ 
 .root {
   height: 100vh;
-  background-image: url(Images/background.png);
+  width: 100vw;
+  background-image: url(Images/background2.png);
   background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
 }
 
+
 .header {
-  background-color: #e4cab5;
+  background-color: transparent;
+  opacity: 1;
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -62,45 +64,54 @@
 
 .header-nav {
   display: flex;
+
 }
 
 .header-nav-list {
   display: flex;
-  margin: 0;
+  font-weight: bold;
   padding: 0;
   list-style: none;
+  margin-top: 10px;
 }
 
 .header-nav-item {
-  margin-right: 16px;
+  margin-right: 70px;
 }
 
 .header-nav-link {
-  color: #080101;
+  font-size: large;
+  color: #7b512e;
   text-decoration: none;
 }
 
 .header-title {
-  color: #100909;
+  color: #7b512e;
   margin: 0;
   font-size: 85.1PX;
   font-family: The Seasons;
+}
 
+.head-text2{
+  color: #7b512e;
 }
 
 .header-login-button {
-  background-color: #306090;
+  background-color: #7b512e;
   color: #fff;
-  padding: 8px 16px;
+  padding: 15px 30px;
   border: none;
   border-radius: 4px;
   font-size: 14px;
   cursor: pointer;
   margin-left: 16px;
+  margin-right: 20px;
+  
 }
 
+
 .header-login-button:hover {
-  background-color: #3090c0;
+  background-color: #aa7142;
 }
 
 .main {
@@ -110,24 +121,6 @@
   align-items:center;
 }
 
-.right-cont.detect-button {
-  background-color: #29838d;
-  color: #fff;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 50px;
-  font-size: 18px;
-  cursor: pointer;
-  margin-left: 16px;
-  height: 100px;
-  weight: 200px;
-
-}
-
-.right-cont.detect-button:hover {
-  background-color: #88ccee;
-}
-
 .right-cont{
   position: relative;
   top: -100px;
@@ -135,43 +128,12 @@
   
 }
 
-.serum-image {
-  height: 250px;
-  width: 250px;
+.home-image{
+  height: 500px;
+  width: 500px;
   position: absolute;
-  top: 65%;
-  left: 15%;
+  top: 55%;
+  left: 30%;
   transform: translate(-50%,-50%);
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1px solid grey;
+}
  
-}
-
-.hairloss-image{
-  height: 205px;
-  width: 205px;
-  position: absolute;
-  top: 80%;
-  left: 30%;
-  transform: translate(-50%,-50%);
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1px solid grey;
-  
-}
-
-.hair-image{
-  height: 300px;
-  width: 300px;
-  position: absolute;
-  top: 40%;
-  left: 30%;
-  transform: translate(-50%,-50%);
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1px solid grey;
-}
-
-
-
