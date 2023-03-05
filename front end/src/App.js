@@ -3,16 +3,22 @@ import home from './Images/home.png';
 import './App.css';
 import React, { useState } from 'react';
 import LoginRegister from './Components/LoginRegister';
+import RegistrationForm from './Components/RegistrationForm';
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
+  const [showRegistration, setShowRegistration] = useState(false);
 
   const toggleLogin = () => {
     setShowLogin(!showLogin);
-  }
+  };
+
+  const toggleRegistration = () => {
+    setShowRegistration(!showRegistration);
+  };
 
   return (
-    <div className={`root ${showLogin ? 'blur' : ''}`}>
+    <div className={`root ${showLogin || showRegistration ? 'blur' : ''}`}>
       <header className="header">
         <img src={logo} alt="Skin Disease Detection logo" className="header-logo"/>
         <nav className="header-nav">
@@ -31,23 +37,32 @@ function App() {
             </li>
           </ul>
         </nav>
-        <button className="header-login-button" onClick={toggleLogin}>Login</button>
+        <button className="header-login-button" onClick={toggleLogin}>
+          Login
+        </button>
       </header>
       <main className="main">
-  {!showLogin && (
-    <>
-      <div className='right-cont'>
-        <h1 className='header-title'> ScalpCare </h1>
-        <h4 className='head-text2'>HAIR AND SCALP DISEASE IDENTIFIER </h4>
-        <button className="right-cont.detect-button">Get Started</button>
-      </div>
-      <div className='left-cont'>
-        <img src={home} className='home-image' alt='home image'></img>
+        {!showLogin && !showRegistration && (
+          <>
+            <div className='right-cont'>
+              <h1 className='header-title'> ScalpCare </h1>
+              <h4 className='head-text2'>HAIR AND SCALP DISEASE IDENTIFIER </h4>
+              <button className="right-cont.detect-button" onClick={toggleRegistration}>
+                Get Started
+              </button>
+            </div>
+            <div className='left-cont'>
+              <img src={home} className='home-image' alt='home image'></img>
+            </div>
+          </>
+        )}
+      </main>
+      {showRegistration && (
+        <div className="login-wrapper">
+          <RegistrationForm />
+        </div>
+      )}
 
-      </div>
-    </>
-  )}
-</main>
       {showLogin && (
         <div className="login-wrapper">
           <LoginRegister />
