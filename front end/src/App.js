@@ -3,51 +3,43 @@ import home from './Images/home.png';
 import './App.css';
 import React, { useState } from 'react';
 import LoginRegister from './Components/LoginRegister';
-import RegistrationForm from './Components/RegistrationForm';
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
-  const [showRegistration, setShowRegistration] = useState(false);
-
+  
   const toggleLogin = () => {
     setShowLogin(!showLogin);
   };
 
-  const toggleRegistration = () => {
-    setShowRegistration(!showRegistration);
-  };
-
   return (
-    <div className={`root ${showLogin || showRegistration ? 'blur' : ''}`}>
+    <div className={`root ${showLogin ? 'blur' : ''}`}>
       <header className="header">
         <img src={logo} alt="Skin Disease Detection logo" className="header-logo"/>
         <nav className="header-nav">
           <ul className="header-nav-list">
             <li className="header-nav-item">
-              <a href="#" className="header-nav-link">HOME</a>
+              <a href="#" className="header-nav-link">Home</a>
             </li>
             <li className="header-nav-item">
-              <a href="#" className="header-nav-link">ABOUT US</a>
+              <a href="#" className="header-nav-link">About Us</a>
             </li>
             <li className="header-nav-item">
-              <a href="#" className="header-nav-link">SERVICES</a>
+              <a href="#" className="header-nav-link">Services</a>
             </li>
             <li className="header-nav-item">
-              <a href="#" className="header-nav-link">CONTACT US</a>
+              <a href="#" className="header-nav-link">Contact Us</a>
             </li>
           </ul>
         </nav>
-        <button className="header-login-button" onClick={toggleLogin}>
-          Login
-        </button>
+        <button className="header-login-button" onClick={toggleLogin}>Login</button>
       </header>
       <main className="main">
-        {!showLogin && !showRegistration && (
+        {!showLogin && (
           <>
             <div className='right-cont'>
               <h1 className='header-title'> ScalpCare </h1>
               <h4 className='head-text2'>HAIR AND SCALP DISEASE IDENTIFIER </h4>
-              <button className="right-cont.detect-button" onClick={toggleRegistration}>
+              <button className="right-cont.detect-button" onClick={toggleLogin}>
                 Get Started
               </button>
             </div>
@@ -57,12 +49,6 @@ function App() {
           </>
         )}
       </main>
-      {showRegistration && (
-        <div className="login-wrapper">
-          <RegistrationForm />
-        </div>
-      )}
-
       {showLogin && (
         <div className="login-wrapper">
           <LoginRegister />
