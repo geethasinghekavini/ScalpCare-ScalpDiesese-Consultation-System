@@ -1,23 +1,67 @@
 import React, { useState } from "react";
 import "./LoginRegister.css";
+import axios from "axios";
+
 const LoginRegister = () => {
   const [addclass, setaddclass] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+
+const handleRegisterSubmit = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:5000/api/register', {
+      name,
+      email,
+      password,
+    })
+    .then((response) => {
+      console.log(response.data);
+      // Reset the form inputs after successful registration
+      setName('');
+      setEmail('');
+      setPassword('');
+    })
+    .catch((error) => {
+      console.log(error.response.data);
+    });
+  }
+  
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:5000/api/login', {
+      email: loginEmail,
+      password: loginPassword,
+    })
+    .then((response) => {
+      console.log(response.data);
+      // Reset the form inputs after successful login
+      setLoginEmail('');
+      setLoginPassword('');
+    })
+    .catch((error) => {
+      console.log(error.response.data);
+    });
+  }
+  
   return (
     <div className={`container ${addclass}`} id="container">
       <div className="form-container  sign-up-container">
-        <form>
+        <form method="POST" onSubmit={handleRegisterSubmit}>
           <h1>Create Account</h1>
-          <input type="text" placeholder="NAME" />
-          <input type="email" placeholder="EMAIL" />
-          <input type="password" placeholder="PASSWORD" />
+          <input type="text" placeholder="NAME" value={name} onChange={(e) => setName(e.target.value)} />
+          <input type="email" placeholder="EMAIL" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type="password" placeholder="PASSWORD" value={password} onChange={(e) => setPassword(e.target.value)} />
           <button type="submit">REGISTER</button>
         </form>
       </div>
       <div className="form-container sign-in-container">
-        <form>
+        <form method="POST" onSubmit={handleLoginSubmit}>
           <h1>Login</h1>
-          <input type="email" placeholder="EMAIL" />
-          <input type="password" placeholder="PASSWORD" />
+          <input type="email" placeholder="EMAIL" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} />
+          <input type="password" placeholder="PASSWORD" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} />
           <button type="submit">LOGIN</button>
         </form>
       </div>
