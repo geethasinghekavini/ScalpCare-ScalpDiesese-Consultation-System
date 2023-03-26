@@ -3,22 +3,26 @@ import home from './Images/home.png';
 import './App.css';
 import React, { useState } from 'react';
 import LoginRegister from './Components/LoginRegister';
-import RegistrationForm from './Components/RegistrationForm';
+import UploadImage from './Components/UploadImage';
+import DiseaseDetails from './Components/DiseaseDetails';
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
-  const [showRegistration, setShowRegistration] = useState(false);
+  const [showUpload, setShowUpload] = useState(false);
+  const [showDisease, setShowDisease] = useState(false);
 
   const toggleLogin = () => {
     setShowLogin(!showLogin);
   };
-
-  const toggleRegistration = () => {
-    setShowRegistration(!showRegistration);
+  const toggleUpload = () => {
+    setShowUpload(!showUpload);
+  };
+  const toggleDisease = () => {
+    setShowDisease(!showDisease);
   };
 
   return (
-    <div className={`root ${showLogin || showRegistration ? 'blur' : ''}`}>
+    <div className={`root ${showLogin | 'blur'}`}>
       <header className="header">
         <img src={logo} alt="Skin Disease Detection logo" className="header-logo"/>
         <nav className="header-nav">
@@ -42,13 +46,16 @@ function App() {
         </button>
       </header>
       <main className="main">
-        {!showLogin && !showRegistration && (
+        {!showLogin && !showUpload && !showDisease && (
           <>
             <div className='right-cont'>
               <h1 className='header-title'> ScalpCare </h1>
               <h4 className='head-text2'>HAIR AND SCALP DISEASE IDENTIFIER </h4>
-              <button className="right-cont.detect-button" onClick={toggleRegistration}>
+              <button className="right-cont.detect-button" onClick={toggleUpload}>
                 Get Started
+              </button>
+              <button className="right-cont.detect-button" onClick={toggleDisease}>
+                Disease
               </button>
             </div>
             <div className='left-cont'>
@@ -57,15 +64,19 @@ function App() {
           </>
         )}
       </main>
-      {showRegistration && (
-        <div className="login-wrapper">
-          <RegistrationForm />
-        </div>
-      )}
-
       {showLogin && (
         <div className="login-wrapper">
           <LoginRegister />
+        </div>
+      )}
+      {showUpload && (
+        <div className="login-wrapper">
+          <UploadImage />
+        </div>
+      )}
+      {showDisease && (
+        <div className="login-wrapper">
+          <DiseaseDetails />
         </div>
       )}
     </div>
